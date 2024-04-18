@@ -39,19 +39,13 @@ export const FoodTruckMap = () => {
                     latitude: latitude,
                     longitude: longitude + 360,
                     address: columns[5],
+                    location: columns[4],
                     foodOfferings: columns[11],
                     facilityType: columns[2],
+                    hours: columns[17]
                 } 
             } else if (latitude === 0 || longitude === 0) {
-                return {
-                    id: columns[0],
-                    name: columns[1],
-                    latitude: 37.7749,
-                    longitude: 237.5894,
-                    address: columns[5],
-                    foodOfferings: columns[11],
-                    facilityType: columns[2],
-                }
+                return null
             } else {
                 return null
             }
@@ -85,9 +79,12 @@ export const FoodTruckMap = () => {
                            >
                             <Popup>
                                 <div>
-                                    <h3>{truck.name}</h3>
-                                    <p>{truck.address}</p>
-                                    <p>{truck.foodOfferings}</p>
+                                    <h3 className="text-xl font-semibold">Name: { truck.name }</h3>
+                                    <p>Address: { truck.address } </p>
+                                    <p>Cross Street: { truck.location }</p>
+                                    <p>Offerings: { truck.foodOfferings }</p>
+                                    <p>Hours of operation: { truck.hours ? truck.hours : 'Not Available' }</p>
+                                    <p>Type: { truck.facilityType }</p>
                                 </div>
                             </Popup>
                         </Marker>
