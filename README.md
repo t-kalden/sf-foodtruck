@@ -1,0 +1,1 @@
+Simple web app pulling data from the SF food truck CSV using Axios, and visualizing it on a map using the ReactLeaflet library.
